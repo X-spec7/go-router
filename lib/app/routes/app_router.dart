@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gorouter_auth/app/routes/route_utils.dart';
 import 'package:gorouter_auth/app/routes/screens/not_found_page.dart';
-import 'package:gorouter_auth/screens/home_screen.dart';
-import 'package:gorouter_auth/screens/login_screen.dart';
+import 'package:gorouter_auth/features/auth/presentation/screens/home_screen.dart';
+import 'package:gorouter_auth/features/auth/presentation/screens/login_screen.dart';
 
 class AppRouter {
 
