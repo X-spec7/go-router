@@ -32,7 +32,7 @@ extension AppPageExtension on PAGES {
     }
   }
 
-  String get appTitle {
+  String get screenTitle {
     switch (this) {
       case PAGES.home:
         return "Home";
