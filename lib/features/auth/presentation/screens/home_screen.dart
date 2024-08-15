@@ -9,36 +9,30 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late Widget finalView;
-
     return Scaffold(
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
-          state.when(
-              initial: () {},
-              success: (s){},
-              failed: () => AppRouter.router.go(PAGES.login.screenPath));
+          state.maybeWhen(
+            failed: () => AppRouter.router.go(PAGES.login.screenPath),
+            orElse: () {},
+          );
         },
         builder: (context, state) {
-          state.when(
-              initial: () => finalView = const SizedBox(),
-              success: (r) => finalView = Center(
+          return state.when(
+              initial: () => const SizedBox(),
+              success: (r) => Center(
                 child: TextButton(
                   child: const Text(
                     'Logout',
                   ),
                   onPressed: () {
-                    context.read<AuthBloc>().loginUseCase(false);
+                    context.read<AuthBloc>().add(const AuthEvent.logout());
                     AppRouter.router.go(PAGES.login.screenPath);
                   },
                 ),
               ),
-              failed: () {
-                finalView = const SizedBox();
-                //AppRouter.router.go(PAGES.login.screenPath);
-              },
+              failed: () => const SizedBox(),
           );
-          return finalView;
         },
       ),
     );
