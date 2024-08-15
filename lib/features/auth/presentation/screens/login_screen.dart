@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
             'Login',
           ),
           onPressed: (){
-            context.read<AuthBloc>().loginUseCase(true);
+            context.read<AuthBloc>().add(const AuthEvent.login());
             AppRouter.router.go(PAGES.home.screenPath);
           },
         ),
