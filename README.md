@@ -1,5 +1,3 @@
 # GO-ROUTER
 
-A sample project for go-router
-
-## Getting Started
+A clear architecture of Flutter project using go-router and Bloc
